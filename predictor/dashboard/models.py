@@ -17,7 +17,7 @@ class Data(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
-        ml_model = load("models\model.joblib")
+        ml_model = load("models\\model.joblib")
         self.prediction = ml_model.predict([[self.age, self.height, self.sex]])
         return super().save(*args, **kwargs)
 
@@ -25,4 +25,4 @@ class Data(models.Model):
         ordering = ["-date"]
 
     def __str__(self):
-        return self.name
+        return str(self.name)

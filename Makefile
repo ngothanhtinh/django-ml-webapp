@@ -1,9 +1,11 @@
 install:
-	H:\django-ml-webapp\.venv\Scripts\python.exe -m pip install --upgrade pip &&\
-	 pip install -r requirements.txt
+	python -m pip install --upgrade pip && pip install -r requirements.txt
+
 format:
-	#format code
+	python -m black predictor/dashboard/*.py predictor/predictor/*.py
+
 lint:
-	#pylint
+	pylint --disable=R,C predictor/dashboard/*.py predictor/predictor/*.py
+
 test:
 	#test
